@@ -198,8 +198,21 @@ main {
 
 /* Hero sections */
 .hero {
-  padding: 4rem 0 3rem;
+  padding: 2rem 0 3rem;
   max-width: var(--max-content-width);
+}
+
+.hero-image-wrapper {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.hero-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .hero h1 {

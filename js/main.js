@@ -7,6 +7,36 @@
 (function() {
   'use strict';
 
+  // === DROPDOWN NAVIGATION ===
+  const dropdownParents = document.querySelectorAll('.has-dropdown');
+  dropdownParents.forEach(function(parent) {
+    const toggle = parent.querySelector('a[aria-haspopup="true"]');
+    const dropdown = parent.querySelector('.dropdown');
+    if (!toggle || !dropdown) return;
+
+    // Toggle on click (especially for touch / keyboard)
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth > 768) {
+        // On desktop, allow normal navigation to media hub, but toggle if already on media
+        return;
+      }
+      e.preventDefault();
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      parent.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking a dropdown link on mobile
+    dropdown.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          toggle.setAttribute('aria-expanded', 'false');
+          parent.classList.remove('active');
+        }
+      });
+    });
+  });
+
   // === MOBILE NAVIGATION ===
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.main-nav');

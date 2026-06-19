@@ -12,30 +12,34 @@
 
   <!-- Header -->
   <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="wordmark">Serial Criminologist</a>
-      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="criminology.html">What Criminology Is</a></li>
-          <li><a href="received-view.html">The Received View</a></li>
-          <li><a href="essays.html">Essays</a></li>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="podcast.html">Podcast</a></li>
-          <li><a href="substack.html" class="active">Substack</a></li>
-          <li><a href="reels.html">Reels</a></li>
-          <li><a href="memes.html">Memes</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="header-inner">
+    <a href="index.html" class="wordmark">Serial Criminologist</a>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="criminology.html">What Criminology Is</a></li>
+        <li><a href="received-view.html">The Received View</a></li>
+        <li><a href="essays.html">Essays</a></li>
+        <li class="has-dropdown">
+          <a href="media.html" class="active" aria-haspopup="true">Media</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="podcast.html" role="menuitem">Podcast</a></li>
+            <li><a href="substack.html" role="menuitem" class="active">Substack</a></li>
+            <li><a href="reels.html" role="menuitem">Reels</a></li>
+            <li><a href="memes.html" role="menuitem">Memes</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <main id="main-content">
     <section class="hero" aria-labelledby="page-heading">
@@ -51,26 +55,26 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-purpose">Public criminology. Evidence over anecdote. Understanding before response.</p>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="criminology.html">What Criminology Is</a>
-        <a href="received-view.html">The Received View</a>
-        <a href="essays.html">Essays</a>
-        <a href="media.html">Media</a>
-        <a href="podcast.html">Podcast</a>
-        <a href="substack.html">Substack</a>
-        <a href="reels.html">Reels</a>
-        <a href="memes.html">Memes</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="footer-bottom">
-        <p>© 2026 Serial Criminologist · <a href="contact.html">Get in touch</a></p>
-      </div>
+  <div class="footer-inner">
+    <p class="footer-purpose">Public criminology. Evidence over anecdote. Understanding before response.</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="criminology.html">What Criminology Is</a>
+      <a href="received-view.html">The Received View</a>
+      <a href="essays.html">Essays</a>
+      <a href="media.html">Media</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="substack.html">Substack</a>
+      <a href="reels.html">Reels</a>
+      <a href="memes.html">Memes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-bottom">
+      <p>© 2026 Serial Criminologist · <a href="contact.html">Get in touch</a></p>
     </div>
-  </footer>
+  </div>
+</footer>
 
   <script src="js/main.js"></script>
 </body>

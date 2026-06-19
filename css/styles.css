@@ -65,6 +65,20 @@ a:hover {
   color: var(--accent-oxblood);
 }
 
+/* Site banner image above header */
+.site-banner {
+  width: 100%;
+  line-height: 0;
+}
+
+.site-banner-img {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: block;
+  height: auto;
+}
+
 /* --- HEADER --- */
 .site-header {
   position: sticky;

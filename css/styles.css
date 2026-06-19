@@ -296,12 +296,12 @@ main {
 }
 
 .hero-content {
-  flex: 1 1 20%;
+  flex: 0 0 260px;
   min-width: 220px;
 }
 
 .hero-image-wrapper {
-  flex: 1 1 76%;
+  flex: 1 1 auto;
   min-width: 300px;
   margin-bottom: 0;
   order: 2;

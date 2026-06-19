@@ -288,7 +288,7 @@ main {
 /* Hero sections */
 .hero {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
   padding: 1.5rem 0 3rem;
@@ -296,12 +296,12 @@ main {
 }
 
 .hero-content {
-  flex: 1 1 38%;
-  min-width: 300px;
+  flex: 1 1 24%;
+  min-width: 240px;
 }
 
 .hero-image-wrapper {
-  flex: 1 1 58%;
+  flex: 1 1 72%;
   min-width: 320px;
   margin-bottom: 0;
   order: 2;

@@ -287,13 +287,24 @@ main {
 
 /* Hero sections */
 .hero {
-  padding: 2rem 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 0 3rem;
   max-width: var(--max-content-width);
 }
 
+.hero-content {
+  flex: 1 1 55%;
+  min-width: 300px;
+}
+
 .hero-image-wrapper {
-  margin-bottom: 2rem;
-  width: 100%;
+  flex: 1 1 40%;
+  min-width: 260px;
+  margin-bottom: 0;
+  order: 2;
 }
 
 .hero-banner {
@@ -315,6 +326,31 @@ main {
   color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 1rem 0 2rem;
+  }
+
+  .hero-image-wrapper {
+    order: -1;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero .subhead {
+    font-size: 1.1rem;
+  }
 }
 
 /* CTAs */

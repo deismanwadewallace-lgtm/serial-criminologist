@@ -681,8 +681,40 @@ li {
   }
 }
 
-/* Print */
-@media print {
+.references {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+}
+
+.references h2,
+.references h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.references ol,
+.references ul {
+  margin-left: 1.25rem;
+  margin-bottom: 0;
+}
+
+.references li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: 0.1em;
+}
+
   .site-header, .site-footer, .nav-toggle, .cta-group {
     display: none;
   }

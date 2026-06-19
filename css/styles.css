@@ -387,17 +387,21 @@ form {
   max-width: 600px;
 }
 
-/* Lead statement */
-.lead {
+/* Pull-statement — own-voice, set apart, no quotation marks */
+.pull-statement {
   font-family: Georgia, serif;
   font-size: 1.35rem;
-  font-style: italic;
   color: var(--accent-deep-blue);
   line-height: 1.5;
   margin: 2rem 0;
   padding: 1.5rem;
   border-left: 4px solid var(--accent-deep-blue);
   background: rgba(26, 58, 92, 0.04);
+}
+
+.pull-statement p {
+  margin-bottom: 0;
+  font-style: normal;
 }
 
 /* Section spacing */

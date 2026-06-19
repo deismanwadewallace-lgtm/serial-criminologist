@@ -21,7 +21,13 @@
     <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
       <ul>
         <li><a href="about.html">About</a></li>
-        <li><a href="understanding-crime.html">Understanding Crime</a></li>
+        <li class="has-dropdown">
+          <a href="understanding-crime.html" aria-haspopup="true">Understanding Crime</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="understanding-crime.html#popular-and-scientific-approaches" role="menuitem">Popular and Scientific Approaches</a></li>
+            <li><a href="understanding-crime.html#proof-of-concept" role="menuitem">Proof of Concept</a></li>
+          </ul>
+        </li>
         <li class="has-dropdown">
           <a href="initiatives.html" aria-haspopup="true">Initiatives</a>
           <ul class="dropdown" role="menu">

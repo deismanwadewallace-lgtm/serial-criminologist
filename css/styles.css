@@ -715,6 +715,8 @@ sup {
   margin-left: 0.1em;
 }
 
+/* Print */
+@media print {
   .site-header, .site-footer, .nav-toggle, .cta-group {
     display: none;
   }

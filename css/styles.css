@@ -301,12 +301,17 @@ main {
 
 /* Hero sections */
 .hero {
+  padding: 1.5rem 0 3rem;
+  max-width: var(--max-content-width);
+}
+
+/* Two-column layout only when the hero actually has an image beside the text
+   (the home page). Text-only heroes on interior pages flow normally. */
+.hero:has(.hero-image-wrapper) {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1.5rem 0 3rem;
-  max-width: var(--max-content-width);
 }
 
 .hero-content {

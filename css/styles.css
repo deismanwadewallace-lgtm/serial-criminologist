@@ -530,7 +530,7 @@ form {
   font-size: 1.35rem;
   color: var(--accent-deep-blue);
   line-height: 1.5;
-  margin: 1.5rem 0 2rem;
+  margin: 1rem 0 2rem;
   padding: 1.5rem;
   border-left: 4px solid var(--accent-deep-blue);
   background: rgba(26, 58, 92, 0.04);

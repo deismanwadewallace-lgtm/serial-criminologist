@@ -67,16 +67,34 @@ a:hover {
 
 /* Site banner image above header */
 .site-banner {
-  width: 100%;
-  line-height: 0;
-}
-
-.site-banner-img {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.site-banner-img {
+  width: 75%;
+  max-width: 900px;
+  margin: 0;
   display: block;
   height: auto;
+}
+
+.site-banner-caption {
+  flex: 1 1 auto;
+  min-width: 180px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: left;
+  margin: 0;
 }
 
 /* --- HEADER --- */

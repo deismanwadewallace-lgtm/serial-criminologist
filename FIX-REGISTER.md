@@ -1,39 +1,43 @@
 # Serial Criminologist — Fix Register
 
-Site: https://deismanwadewallace-lgtm.github.io/serial-criminologist/  
-Reviewed: 19 June 2026  
-Cycle 1 completed: 20 June 2026 02:50 UTC
+Site: https://deismanwadewallace-lgtm.github.io/serial-criminologist/
+Opened: 19 June 2026
+Last updated: 19 June 2026 (Cycle 1 closed)
+
+Verification note: Claude's fetcher served a cached snapshot through Cycle 1 and kept showing the pre-fix state even with cache-busting query strings. Ground truth was confirmed by the author in an incognito browser window. RULE FOR THIS LOOP: when Claude's fetch disagrees with an incognito load, incognito wins. Use incognito (or a hard-refresh on the author's side) as the verification source until the fetcher cache clears.
 
 ---
 
-## Page inventory and navigation
+## Page inventory and which navigation each page carries
 
-| Page | Exists | Nav | Notes |
+Arch A = old 7-item nav (had Home). Arch B = expanded nav. Canonical going forward = Arch B + Home, propagated to all content pages.
+
+| Page | Exists | Nav (post-Cycle 1) | Notes |
 |---|---|---|---|
-| index.html | yes | **B + Home** | Hero CTAs point to understanding-crime.html and about.html |
-| about.html | yes | **B + Home** | Einstein aphorism already removed in source |
-| criminology.html | yes | none | Redirect stub to understanding-crime.html |
-| received-view.html | yes | none | Redirect stub to understanding-crime.html |
-| understanding-crime.html | yes | **B + Home** | Canonical page, anchors resolve |
-| initiatives.html | yes | **B + Home** | Dropdown removed until anchors exist |
-| interventions.html | yes | **B + Home** | Dropdown removed until anchors exist |
-| essays.html | yes | **B + Home** | |
-| op-eds.html | yes | **B + Home** | |
-| manuscripts.html | yes | **B + Home** | |
-| media.html | yes | **B + Home** | |
-| podcast.html | yes | **B + Home** | |
-| interviews.html | yes | **B + Home** | |
-| reels.html | yes | **B + Home** | |
-| memes.html | yes | **B + Home** | |
-| courses.html | yes | **B + Home** | |
-| resources.html | yes | **B + Home** | |
-| events.html | yes | **B + Home** | Dropdown removed until anchors exist |
-| opportunities.html | yes | **B + Home** | Dropdown anchors resolve |
-| substack.html | yes | **B + Home** | |
-| contact.html | yes | **B + Home** | |
-| approach.html | yes | none | Redirect stub to about.html#public-criminology-approach-heading |
+| index.html | yes | B + Home | Hero CTAs repointed to understanding-crime.html and about.html |
+| about.html | yes | B + Home | Einstein aphorism removed |
+| criminology.html | yes (stub?) | — | Duplicate retired; redirect-stub disposition deferred |
+| received-view.html | yes (stub) | — | Redirect-stub disposition deferred |
+| approach.html | yes | B + Home | Anchor target public-criminology-approach-heading; keep/delete deferred |
+| understanding-crime.html | yes | B + Home | Strongest page; broken dropdowns for Initiatives/Interventions/Events removed pending anchors |
+| initiatives.html | yes | B + Home | Section content + anchors deferred |
+| interventions.html | yes | B + Home | Section content + anchors deferred |
+| op-eds.html | yes | B + Home | |
+| manuscripts.html | yes | B + Home | |
+| interviews.html | yes | B + Home | |
+| courses.html | yes | B + Home | |
+| resources.html | yes | B + Home | |
+| events.html | yes | B + Home | Section content + anchors deferred |
+| opportunities.html | yes | B + Home | |
+| essays.html | yes | B + Home | Confirmed Arch B (Cycle 1) |
+| media.html | yes | B + Home | Confirmed Arch B (Cycle 1) |
+| podcast.html | yes | B + Home | Confirmed Arch B (Cycle 1) |
+| substack.html | yes | B + Home | Confirmed Arch B (Cycle 1) |
+| reels.html | yes | B + Home | Confirmed Arch B (Cycle 1) |
+| memes.html | yes | B + Home | Confirmed Arch B (Cycle 1) |
+| contact.html | yes | B + Home | Confirmed Arch B (Cycle 1) |
 
-**Canonical nav:** Arch B + Home link as first item. Applied to all 19 content pages. Redirect stubs carry no nav.
+Nineteen content pages now carry the single canonical nav.
 
 ---
 
@@ -41,91 +45,136 @@ Cycle 1 completed: 20 June 2026 02:50 UTC
 
 ### CRITICAL
 
-**C1 — Split navigation across the site**  
-Status: **FIXED**
-- All 19 content pages now carry the same canonical nav (Arch B + Home).
-- Redirect stubs (`criminology.html`, `received-view.html`, `approach.html`) carry no nav by design.
+**C1 — Split navigation across the site.** FIXED
+Canonical nav = Arch B + Home propagated to all 19 content pages. Broken dropdowns for Initiatives, Interventions, Events removed until their section anchors exist.
 
-**C2 — received-view.html is a dead stub still linked from homepage**  
-Status: **FIXED**
-- Homepage hero CTAs now point to `understanding-crime.html` and `about.html`.
-- No internal links remain to `received-view.html` or `criminology.html`.
-- Both pages are kept as proper redirect stubs for external-link safety.
+**C2 — received-view.html dead stub / homepage CTA dead-end.** FIXED
+Both hero buttons now point to live canonical pages (understanding-crime.html, about.html).
 
-**C3 — Content duplication: criminology.html vs understanding-crime.html**  
-Status: **FIXED**
-- `criminology.html` is now a redirect stub to `understanding-crime.html`.
-- No internal links point to `criminology.html`.
+**C3 — Content duplication: criminology.html vs understanding-crime.html.** FIXED
+Duplicate retired; understanding-crime.html is canonical. Redirect-stub disposition deferred.
 
 ### HIGH
 
-**H1 — "What Criminology Is" nav item routes to the weaker page**  
-Status: **FIXED**  
-- Main nav item is now "Understanding Crime" pointing to `understanding-crime.html`.
+**H1 — "What Criminology Is" nav routed to weaker page.** FIXED
 
-**H2 — Homepage Explore cards and hero buttons audit**  
-Status: **FIXED**  
-- Two hero buttons: `understanding-crime.html` (live, canonical), `about.html` (live, canonical).
-- No Explore cards currently present in `index.html`; section was simplified before Cycle 1.
+**H2 — Homepage CTAs / Explore cards.** FIXED
+All targets land on live canonical pages.
 
 ### MEDIUM
 
-**M1 — Footer mirrors the nav split**  
-Status: **FIXED**
-- All 19 content pages now carry the same expanded footer.
+**M1 — Footer nav split.** FIXED
+Single shared footer.
 
-**M2 — Borrowed aphorism on about.html**  
-Status: **FIXED / GONE**
-- The Einstein-derived line is no longer present in `about.html`.
+**M2 — Borrowed Einstein aphorism on about.html.** FIXED / GONE
+Removed.
 
 ### LOW
 
-**L1 — Voice consistency check**  
-Status: **FIXED**
-- Homepage copy now uses the same plain, non-aphoristic register as canonical pages after em-dash removal and sentence restructuring.
+**L1 — Voice consistency.** FIXED
 
-**L2 — em dashes present in live copy**  
-Status: **FIXED**
-- All U+2014 em dashes removed from body copy and meta descriptions.
-- Title separators converted to en dash (U+2013).
+**L2 — em dashes in live copy.** FIXED
+All U+2014 removed from body copy and meta descriptions; title separators converted to en dash.
 
----
+### Additional fix completed in Cycle 1 (not in original register)
 
-## New issue surfaced during Cycle 1
-
-**N1 — Broken anchor `public-criminology-as-an-approach`**  
-Severity: HIGH  
-Status: **FIXED**
-- Found in `about.html`, `understanding-crime.html`, and `approach.html`.
-- Real section ID is `public-criminology-approach-heading`.
-- All references updated and verified against live fetches.
+**A1 — Broken anchor.** FIXED
+public-criminology-as-an-approach -> public-criminology-approach-heading in about.html, understanding-crime.html, approach.html.
 
 ---
 
-## Open verification tasks before Cycle 1
+## Cycle 1 verification
 
-- [x] Fetch essays.html, media.html, podcast.html, substack.html, reels.html, memes.html, contact.html and record which nav each carries.  
-  Result: all carry Arch B.
-- [x] Confirm whether any Arch B sub-anchors actually resolve.  
-  Result: Understanding Crime and Opportunities anchors resolve. Initiatives, Interventions, Events anchors do not exist; dropdowns removed.
-- [x] Decide canonical nav.  
-  Result: Arch B + Home.
-- [x] Decide working method.  
-  Result: patch source repo (`serial-criminologist/`), commit, push, re-verify live.
+Author confirmed live state via incognito: single canonical nav, no dead links, no broken anchors, no em dashes. FIX-REGISTER.md saved and committed to the repo.
+
+---
+
+## Remaining (deferred to later cycles)
+
+- [ ] Write actual content + section anchors for Initiatives, Interventions, Events, then restore their nav dropdowns.
+- [ ] Fill the "Coming soon" sections on Understanding Crime (Popular and Scientific Approaches; Proof of Concept).
+- [ ] Decide whether to keep or delete the approach.html, received-view.html, and criminology.html redirect stubs.
 
 ---
 
 ## Loop protocol
 
-Each cycle: (1) confirm current live state with cache-busting fetch, (2) apply fix, (3) re-verify against a fresh fetch in a clean check, (4) update this register's Status fields, (5) report what changed and what remains.
-
-**Cycle 1 result:** All critical, high, and medium defects fixed. Newly-surfaced N1 fixed. Live site re-verified with no dead links, no broken anchors, no em dashes, and a single canonical nav across all content pages.
+Each cycle: (1) confirm current live state, (2) apply fix, (3) re-verify, (4) update Status fields, (5) report what changed and what remains.
+Verification source: incognito browser load or author hard-refresh takes precedence over Claude's fetcher whenever the two disagree.
 
 ---
 
-## Remaining deferred work
+## Domain and hosting (recorded 19 June 2026)
 
-1. **Content for Initiatives, Interventions, Events placeholder pages** — when content is ready, add proper section anchors and restore dropdowns in `components/header.html`, then re-sync to all pages.
-2. **Received view content** — `understanding-crime.html` has placeholder sections "Popular and Scientific Approaches" and "Proof of Concept" marked "Coming soon."
-3. **Approach.html** — this redirect stub was not in the original inventory. Confirm whether it should be retained or deleted.
-4. **Received-view.html / criminology.html** — confirm whether to retain redirect stubs indefinitely or delete once external links are known to be gone.
+- Custom domain purchased: serialcriminologist.ca (registrar: Namecheap).
+- Current host: GitHub Pages (deismanwadewallace-lgtm.github.io/serial-criminologist/).
+- Plan: keep editing on the current host. Do the domain + host migration as ONE deliberate step AFTER content work (Cycles 2-3) is complete, to avoid breaking links mid-edit.
+- Migration step (deferred): connect GitHub repo to Vercel (easiest SSL + DNS), then in Namecheap Advanced DNS point serialcriminologist.ca at the host. Verify, then retire the github.io URL or 301 it.
+- Editing access: still the real bottleneck. Custom domain and Vercel do NOT grant Claude edit access to source. Options remain (a) upload repo zip per cycle, or (b) add GitHub connector. Vercel connector is read/deploy/logs only, no file editing.
+
+---
+
+## Cycle 2 — CLOSED (verified live 19 June 2026 via incognito)
+
+Built and deployed the Interventions page.
+
+- **Subversion-as-Extortion section**: full conceptual reframe (acquisition vs subjugation), the organized-criminal-persecution working name with six-term vocabulary, international evidence base (extortion-as-governance, Mexico kingpin finding, Italy/Addiopizzo, underreporting/measurement trap), and a does-and-does-not-claim guardrail. Sourced from the bespoke-offence handoff and the policing lit-review outline.
+- **Residential School Denialism section**: abstract + key findings, with 8 superscript citations and a References block tied to the report's real numbered sources. Sourced from the consolidated report (public-level only).
+- **Interventions nav dropdown restored** across all 19 content pages + component, pointing to #subversion-masquerades and #residential-school-denialism. Page + nav shipped as one push.
+
+HELD OFF THE PUBLIC SITE (confirmed in live output): the extortion diagnostic (foreign-interference "payback" framing, community-specific strategy, charter process). No community named anywhere. The single abstract line about "a community that already distrusts authorities" was deliberately retained at author's instruction.
+
+Deployment method established: Claude produces the changed files as a zip + a precise instruction block; author relays to the OpenClaw agent (MacBook Air) via Telegram; agent edits the repo and pushes; author verifies in an incognito browser window. Incognito is the verification source of record; Claude's fetcher is treated as unreliable due to caching.
+
+### Still deferred to later cycles
+- [ ] Subversion section: decide whether to add inline citations (Rusev, the Mexico/Italy studies) to match the denialism section's apparatus.
+- [ ] Resolve the diagnostic question (author reviewing).
+- [ ] Initiatives page: A Classroom in Every Prison; Alliance Against Organized Coercion and Targeted Extortion (needs source).
+- [ ] Events page content + anchors, then restore its dropdown.
+- [ ] Fill the two "Coming soon" sections on Understanding Crime.
+- [ ] Decide keep/delete for the approach.html, received-view.html, criminology.html redirect stubs.
+- [ ] Domain + host migration (serialcriminologist.ca via Namecheap) as a final deliberate step.
+
+---
+
+## Cycle 3 — CLOSED (verified live 19 June 2026 via incognito)
+
+Built and deployed the full Initiatives page (both entries).
+
+- **A Classroom in Every Prison**: full section on the Canadian Alliance for Prison Education (CAPE), its coordinating role, the on-the-ground record (12 years, 10 BC institutions named, 14+ prisons, ~50 iterations), the evidence case for prison education, and the 2030 goal. Institutions named (UFV, UVic, UBC, VIU, Kwantlen); individual board members NOT named (author's call). Abolition framing from the source softened: idea retained in the pull-statement, word "abolish" not used.
+- **Alliance Against Organized Coercion and Targeted Extortion**: full section describing the stop-extortion.ca initiative. Names South Asian communities (as the Alliance site does). Cites Surrey figures (133 files 2025 up from 12; Jan 2026 peak of 44; single-district concentration; police-files caveat). Links out to stop-extortion.ca rather than mirroring crisis content; minimal emergency contacts (911, VictimLink) only. Ties to the Subversion intervention.
+- **Initiatives nav dropdown restored** across all 19 content pages + component, pointing to #a-classroom-in-every-prison and #alliance-against-organized-coercion.
+
+Sourced from: CAPE one-page overview, CAPE charter/governance, Law Foundation grant application (Classroom); stop-extortion.ca (Alliance). HELD OFF: the extortion diagnostic's foreign-interference "payback" framing and community-strategy material (never surfaced; sweep clean). Individual coalition board names kept off.
+
+Verification: author confirmed live Alliance section via incognito; Classroom section deployed in same file. Claude fetcher again served a stale body (nav updated, body cached) — incognito remained the source of record.
+
+### Still deferred to later cycles
+- [ ] Subversion section: decide whether to add inline citations to match the denialism apparatus.
+- [ ] Resolve the diagnostic question (author reviewing) — note: the public Alliance framing is now live and clean, which may inform that decision.
+- [ ] Events page content + anchors, then restore its dropdown.
+- [ ] Fill the two "Coming soon" sections on Understanding Crime.
+- [ ] Decide keep/delete for the approach.html, received-view.html, criminology.html redirect stubs.
+- [ ] Domain + host migration (serialcriminologist.ca via Namecheap) as a final deliberate step.
+
+---
+
+## Cycle 4 — built, awaiting deploy (19 June 2026)
+
+Launch-discipline pass + News Tracker page.
+
+- **News Tracker page built** (news-tracker.html): curated "what we're tracking" format, NOT a live feed. Five themed sections (organized extortion/Bishnoi, foreign interference/natsec, prisons under strain, policing+technology, with cross-links to the Interventions and Initiatives pages). Each item is headline + source + short ORIGINAL blurb + link to original reporting. Copyright-safe: no reproduced article summaries. Sourced from 15 engine digests (June 7-16, 2026); real decoded URLs. Added as a top-level nav tab.
+- **Launch nav collapse**: top menu trimmed to Home, About, Understanding Crime, Interventions, Initiatives, Media, News Tracker, Contact. Reordered so Interventions precedes Initiatives. Hidden pages (Writing/essays cluster, Courses, Resources, Events, Opportunities) remain LIVE at their URLs and keep their own nav; they are simply out of the top menu until they have real content. Footer nav matched to the launch set.
+- **Fixes**: Alliance name standardized to "Organized Coercion" (the 1 stray "Community" corrected); "Post Cast Crew" → "Podcast Crew"; "Op Ed Pieces" retired with the Writing dropdown.
+- **Home page additions**: a "Who is behind this" credibility block and a "Start here" three-card path (Understand the problem → Understanding Crime; See criminology in action → Interventions; Get involved → Contact). New CSS added for these and the tracker list, using existing site variables.
+
+DECLINED from the external review (with reasons): plain-language summary boxes on Interventions (subheads already do this); renaming Interventions to "Public Interventions" (real term, well-defined); skeletal placeholder lists on Resources/Courses (thin reads as thin; hide beats half-fill). Contact form already works (Formspree wired) — reviewer's concern was moot.
+
+Component header.html synced to launch nav (reference file; live nav is inlined per page).
+
+### Still deferred
+- [ ] News Tracker: decide an update cadence/process (it will date; consider periodic refresh or engine-to-site automation).
+- [ ] Fill the deferred pages (Events, Courses, Resources, Writing, Opportunities) then return them to the nav.
+- [ ] Understanding Crime "Coming soon" subsections.
+- [ ] Subversion citations; diagnostic question; redirect-stub cleanup.
+- [ ] serialcriminologist.ca migration (final step).

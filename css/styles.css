@@ -814,3 +814,63 @@ sup {
     text-decoration: underline;
   }
 }
+
+/* ===== Cycle 4 additions: Start Here, credibility, news tracker ===== */
+.credibility {
+  background: var(--bg-subtle);
+  border-left: 3px solid var(--accent-deep-blue);
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+}
+.start-here .start-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.start-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.start-card:hover {
+  border-color: var(--accent-deep-blue);
+  transform: translateY(-2px);
+}
+.start-step {
+  font-weight: 700;
+  color: var(--accent-deep-blue);
+}
+.start-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.tracker-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.tracker-list > li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.tracker-list > li > a {
+  font-weight: 600;
+}
+.tracker-list .src {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+.tracker-list p {
+  margin: 0.35rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}

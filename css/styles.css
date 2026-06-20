@@ -46,13 +46,12 @@ h1, h2, h3, h4 {
   margin-bottom: 0.5em;
 }
 
-h1 { font-size: 2.25rem; }
+h1 { font-size: 2.25rem; margin-top: 0; }
 h2 { font-size: 1.75rem; margin-top: 2rem; }
 h3 { font-size: 1.35rem; margin-top: 1.5rem; }
 
 p {
   margin-bottom: 1.25rem;
-  max-width: var(--max-content-width);
 }
 
 a {
@@ -296,46 +295,22 @@ a:hover {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 1.5rem 3rem;
+  padding: 0.5rem 1.5rem 3rem;
 }
 
 /* Hero sections */
 .hero {
-  padding: 0 0 2rem;
-  max-width: var(--max-content-width);
-}
-
-/* Two-column layout only when the hero actually has an image beside the text
-   (the home page). Text-only heroes on interior pages flow normally. */
-.hero:has(.hero-image-wrapper) {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
+  padding: 0 0 1.5rem;
+  max-width: none;
 }
 
 .hero-content {
-  flex: 0 0 260px;
-  min-width: 220px;
-}
-
-.hero-image-wrapper {
-  flex: 1 1 auto;
-  min-width: 300px;
-  margin-bottom: 0;
-  order: 2;
-}
-
-.hero-banner {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-width: none;
 }
 
 .hero h1 {
   font-size: 2.5rem;
+  margin-top: 0;
   margin-bottom: 1rem;
   line-height: 1.15;
 }
@@ -349,18 +324,7 @@ main {
 
 @media (max-width: 768px) {
   .hero {
-    flex-direction: column;
     padding: 1rem 0 2rem;
-  }
-
-  .hero-image-wrapper {
-    order: -1;
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-content {
-    width: 100%;
   }
 
   .hero h1 {

@@ -46,12 +46,13 @@ h1, h2, h3, h4 {
   margin-bottom: 0.5em;
 }
 
-h1 { font-size: 2.25rem; margin-top: 0; }
+h1 { font-size: 2.25rem; }
 h2 { font-size: 1.75rem; margin-top: 2rem; }
 h3 { font-size: 1.35rem; margin-top: 1.5rem; }
 
 p {
   margin-bottom: 1.25rem;
+  max-width: var(--max-content-width);
 }
 
 a {
@@ -295,22 +296,46 @@ a:hover {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.5rem 1.5rem 3rem;
+  padding: 3rem 1.5rem;
 }
 
 /* Hero sections */
 .hero {
-  padding: 0 0 1.5rem;
-  max-width: none;
+  padding: 1.5rem 0 3rem;
+  max-width: var(--max-content-width);
+}
+
+/* Two-column layout only when the hero actually has an image beside the text
+   (the home page). Text-only heroes on interior pages flow normally. */
+.hero:has(.hero-image-wrapper) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .hero-content {
-  max-width: none;
+  flex: 0 0 260px;
+  min-width: 220px;
+}
+
+.hero-image-wrapper {
+  flex: 1 1 auto;
+  min-width: 300px;
+  margin-bottom: 0;
+  order: 2;
+}
+
+.hero-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .hero h1 {
   font-size: 2.5rem;
-  margin-top: 0;
   margin-bottom: 1rem;
   line-height: 1.15;
 }
@@ -324,7 +349,18 @@ main {
 
 @media (max-width: 768px) {
   .hero {
+    flex-direction: column;
     padding: 1rem 0 2rem;
+  }
+
+  .hero-image-wrapper {
+    order: -1;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 
   .hero h1 {
@@ -843,3 +879,39 @@ sup {
   color: var(--text-secondary);
   font-size: 0.95rem;
 }
+
+/* ===== Media Appearances timeline ===== */
+.era {
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  background: var(--bg-subtle);
+}
+.era > summary {
+  cursor: pointer;
+  padding: 0.85rem 1.1rem;
+  font-size: 1.05rem;
+  list-style-position: inside;
+}
+.era > summary:hover { color: var(--accent-deep-blue); }
+.era-outlets {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.92rem;
+}
+.appearance-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.1rem 1rem;
+}
+.appearance-list li {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border-light);
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 0.15rem 0.75rem;
+  align-items: baseline;
+}
+.ap-year { font-weight: 700; color: var(--accent-deep-blue); grid-row: span 2; }
+.ap-outlet { font-weight: 600; }
+.ap-topic { grid-column: 2; color: var(--text-secondary); font-size: 0.95rem; }

@@ -304,3 +304,14 @@ h2.head{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.5vw,
 
 .footer-meta{font-family:var(--mono);font-size:.74rem;color:#7d8794;letter-spacing:.04em}
 .dot{display:inline}
+
+/* Home hero tagline (descriptor under H1) */
+.hero-tagline{
+  font-family:var(--mono);
+  font-size:.8rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--amber);
+  margin:-0.3rem 0 1.2rem;
+  max-width:none;
+}

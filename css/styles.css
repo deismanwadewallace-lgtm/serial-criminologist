@@ -65,12 +65,13 @@ em{font-style:italic}
 .header-inner{
   max-width:var(--wrap);margin:0 auto;
   padding:.85rem 1.5rem;
-  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
 }
 .wordmark{
   font-family:var(--display);font-weight:800;font-size:1.2rem;
   color:var(--bone);text-decoration:none;letter-spacing:-0.01em;white-space:nowrap;
 }
+.wordmark::after{content:".";color:var(--signal)}
 .main-nav ul{list-style:none;display:flex;gap:.15rem;align-items:center;margin:0;flex-wrap:wrap}
 .main-nav a{
   color:#cdc8bf;text-decoration:none;font-size:.83rem;font-weight:500;
@@ -102,10 +103,10 @@ em{font-style:italic}
     radial-gradient(700px 400px at 0% 120%, rgba(58,74,92,.5), transparent 55%);
 }
 .hero > *{position:relative;z-index:1}
-.hero-inner{max-width:var(--wrap);margin:0 auto;padding:2.25rem 1.5rem 2rem;position:relative;z-index:1}
+.hero-inner{max-width:var(--wrap);margin:0 auto;padding:4.5rem 1.5rem 4rem;position:relative;z-index:1}
 
 /* Interior-page hero (markup: <section class="hero"> with h1/subhead/p directly inside) */
-.hero{padding:1.75rem 0 3rem}
+.hero{padding:3.5rem 0 3rem}
 .hero > h1,.hero > .subhead,.hero > p,.hero > .eyebrow,.hero > .cta-group{
   max-width:var(--wrap);margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem;
 }
@@ -139,7 +140,7 @@ em{font-style:italic}
 /* Main + content sections */
 main{display:block}
 main > section:not(.hero):not(.start-here){
-  max-width:var(--wrap);margin:0 auto;padding:1.5rem 1.5rem;
+  max-width:var(--wrap);margin:0 auto;padding:3rem 1.5rem;
 }
 main > section:not(.hero) .subhead{
   font-family:var(--body);color:var(--slate);font-size:1.1rem;max-width:var(--read);margin-bottom:1.4rem;font-weight:500;
@@ -304,18 +305,23 @@ h2.head{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.5vw,
 .footer-meta{font-family:var(--mono);font-size:.74rem;color:#7d8794;letter-spacing:.04em}
 .dot{display:inline}
 
-/* Brand block in header: wordmark + tagline stacked */
-.brand{
-  display:flex;
-  flex-direction:column;
-  gap:.2rem;
-  padding-top:.15rem;
-}
-.brand-tagline{
-  font-family:var(--body);
-  font-size:.85rem;
-  font-weight:500;
+/* Home hero tagline (descriptor under H1) */
+.hero-tagline{
+  font-family:var(--mono);
+  font-size:.8rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
   color:var(--amber);
-  letter-spacing:.03em;
-  line-height:1.2;
+  margin:-0.3rem 0 1.2rem;
+  max-width:none;
 }
+
+/* Dark figure section (home) */
+.darkfig{background:var(--ink);color:var(--bone)}
+.darkfig .kicker{color:var(--amber)}
+.darkfig h2.head{color:var(--bone);max-width:30ch;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.18}
+.darkfig-lede{font-family:var(--display);font-style:italic;font-size:1.25rem;color:var(--signal);margin:1rem 0 2rem;max-width:none}
+.darkfig-graphic{background:rgba(255,255,255,.03);border:1px solid var(--line-dark);border-radius:12px;padding:1.6rem 1.6rem 1rem;margin-bottom:2rem}
+.darkfig-graphic svg{width:100%;height:auto;display:block}
+.darkfig-prose{max-width:var(--read)}
+.darkfig-prose p{color:var(--text-on-dark);font-size:1.06rem;max-width:none}

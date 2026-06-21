@@ -7,7 +7,7 @@
 <meta name="description" content="Public criminology for understanding crime, violence, and harm. Evidence over anecdote, from a practising criminologist.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/styles.css?v=2">
+<link rel="stylesheet" href="css/styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,800;1,400;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
@@ -16,10 +16,7 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="brand">
-        <a href="index.html" class="wordmark">Serial Criminologist</a>
-        <span class="brand-tagline">Public Engagement and Community Connection</span>
-      </div>
+      <a href="index.html" class="wordmark">Serial Criminologist<span class="dot">.</span></a>
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav" onclick="this.setAttribute('aria-expanded', document.getElementById('main-nav').classList.toggle('open'))">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
@@ -69,7 +66,12 @@
       <div class="hero-inner">
         <span class="eyebrow"><span class="live-dot"></span> Public criminology · evidence over anecdote</span>
         <h1>Most of what you believe about crime is <em>wrong.</em></h1>
+        <p class="hero-tagline">Public Engagement and Community Connection</p>
         <p class="lede">Not because you're foolish. The story we've been told was built for politics, not understanding. This is a practising criminologist's attempt to set the record straight.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="understanding-crime.html">Read Understanding Crime</a>
+          <a class="btn btn-ghost" href="about.html">About the project</a>
+        </div>
       </div>
     </section>
 
@@ -88,6 +90,49 @@
         <a href="news-tracker.html">News Tracker →</a>
       </div>
     </div>
+
+    <!-- DARK FIGURE -->
+    <section class="block darkfig">
+      <div class="wrap">
+        <div class="kicker">The first thing to understand</div>
+        <h2 class="head">Only about a third of crime is ever reported to police. For sexual assault, it is closer to one in twenty.</h2>
+        <p class="darkfig-lede">What the numbers show is not what happened. It is what surfaced.</p>
+
+        <div class="darkfig-graphic">
+          <svg viewBox="0 0 600 260" role="img" aria-labelledby="df-title df-desc" xmlns="http://www.w3.org/2000/svg">
+            <title id="df-title">The dark figure of crime</title>
+            <desc id="df-desc">Two bars. For all crime, about one third is reported to police and two thirds go unrecorded. For sexual assault, about six per cent is reported and ninety-four per cent goes unrecorded.</desc>
+            <defs>
+              <pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                <rect width="7" height="7" fill="#1d2430"/>
+                <line x1="0" y1="0" x2="0" y2="7" stroke="#2c3543" stroke-width="3"/>
+              </pattern>
+            </defs>
+
+            <!-- ALL CRIME -->
+            <text x="0" y="28" fill="#cfc9bf" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="1.5">ALL CRIME</text>
+            <rect x="0" y="40" width="600" height="40" fill="url(#hatch)" rx="4"/>
+            <rect x="0" y="40" width="198" height="40" fill="#C8453A" rx="4"/>
+            <text x="10" y="65" fill="#fff" font-family="'IBM Plex Mono',monospace" font-size="13" font-weight="600">~33% reported</text>
+            <text x="590" y="65" fill="#8a8378" font-family="'IBM Plex Mono',monospace" font-size="13" text-anchor="end">unrecorded</text>
+
+            <!-- SEXUAL ASSAULT -->
+            <text x="0" y="148" fill="#cfc9bf" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="1.5">SEXUAL ASSAULT</text>
+            <rect x="0" y="160" width="600" height="40" fill="url(#hatch)" rx="4"/>
+            <rect x="0" y="160" width="36" height="40" fill="#C8453A" rx="4"/>
+            <text x="46" y="185" fill="#cfc9bf" font-family="'IBM Plex Mono',monospace" font-size="13" font-weight="600">~6%</text>
+            <text x="590" y="185" fill="#8a8378" font-family="'IBM Plex Mono',monospace" font-size="13" text-anchor="end">unrecorded</text>
+
+            <!-- caption -->
+            <text x="0" y="240" fill="#7d8794" font-family="'IBM Plex Mono',monospace" font-size="11">RED = REPORTED TO POLICE  ·  DARK = THE DARK FIGURE</text>
+          </svg>
+        </div>
+
+        <div class="darkfig-prose">
+          <p>The official crime rate measures reported crime, not crime. A 2019 Statistics Canada study put the share of crime reported to police at about one third, and for sexual assault at roughly six per cent. This is the dark figure, and it is the reason a community can be under sustained attack while the statistics stay quiet. It is why victims of extortion who never come forward do not appear in any number at all.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- WHAT THIS SITE IS -->
     <section class="block">

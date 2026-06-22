@@ -72,10 +72,12 @@ em{font-style:italic}
   color:var(--bone);text-decoration:none;letter-spacing:-0.01em;white-space:nowrap;
 }
 .wordmark::after{content:".";color:var(--signal)}
-.brand{display:flex;flex-direction:column;gap:.15rem;line-height:1}
+.brand{display:flex;flex-direction:column;gap:.15rem;line-height:1.2}
 .brand-tagline{
+  display:block;
   font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;
-  text-transform:uppercase;color:#a39e95;white-space:nowrap;
+  text-transform:uppercase;color:var(--bone);opacity:.9;
+  margin-top:.15rem;
 }
 .main-nav ul{list-style:none;display:flex;gap:.05rem;align-items:center;margin:0;flex-wrap:nowrap}
 .main-nav a{

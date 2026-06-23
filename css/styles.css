@@ -302,7 +302,7 @@ h2.head{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.5vw,
 .start h2.head{color:var(--bone)}
 .start .intro{color:var(--text-on-dark);max-width:var(--read);margin-bottom:1.8rem}
 .cards{display:grid;grid-template-columns:1fr;gap:1rem}
-@media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr)}}
 .card{display:flex;flex-direction:column;gap:.5rem;padding:1.4rem;background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:10px;text-decoration:none;color:var(--bone);transition:transform .15s,border-color .15s,background .15s}
 .card:hover{transform:translateY(-3px);border-color:var(--signal);background:rgba(255,255,255,.07)}
 .card .num{font-family:var(--mono);font-size:.72rem;color:var(--signal);letter-spacing:.12em}

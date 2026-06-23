@@ -114,22 +114,15 @@ em{font-style:italic}
 /* Interior-page hero (markup: <section class="hero"> with h1/subhead/p directly inside) */
 .hero{padding:0.7rem 0 0.6rem}
 .hero > h1,.hero > .subhead,.hero > p,.hero > .eyebrow,.hero > .cta-group{
-  max-width:var(--wrap);margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem;
+  width:min(100%, var(--wrap));
+  max-width:var(--wrap);margin-left:auto;margin-right:auto;
+  padding-left:1.5rem;padding-right:1.5rem;
+  text-align:left;
 }
 .hero h1{color:var(--bone);margin-top:0.2rem;margin-bottom:1.1rem;max-width:calc(18ch + 3rem);font-size:clamp(2.2rem,5.5vw,3.6rem);line-height:1.04}
 .hero h1 em{font-style:italic;font-weight:500;color:var(--signal)}
 .hero .subhead,.hero .lede{color:var(--text-on-dark);font-size:clamp(1.05rem,2vw,1.25rem);max-width:calc(54ch + 3rem);line-height:1.55;font-weight:400}
 .hero p{color:var(--text-on-dark)}
-/* Left-align interior hero content while keeping it in the same wrap as body text */
-.hero > h1,
-.hero > .subhead,
-.hero > p,
-.hero > .eyebrow,
-.hero > .cta-group{
-  text-align:left;
-}
-.hero h1{max-width:var(--wrap);margin-left:auto;margin-right:auto;}
-.hero .subhead{max-width:var(--wrap);margin-left:auto;margin-right:auto;}
 /* home page uses .hero-inner wrapper, so neutralize the auto-padding there */
 .hero .hero-inner > *{padding-left:0;padding-right:0;margin-left:0;margin-right:0}
 .hero .hero-inner h1{max-width:18ch}

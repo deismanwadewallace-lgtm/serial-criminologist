@@ -120,16 +120,16 @@ em{font-style:italic}
 .hero h1 em{font-style:italic;font-weight:500;color:var(--signal)}
 .hero .subhead,.hero .lede{color:var(--text-on-dark);font-size:clamp(1.05rem,2vw,1.25rem);max-width:calc(54ch + 3rem);line-height:1.55;font-weight:400}
 .hero p{color:var(--text-on-dark)}
-/* Left-justify interior hero content (override auto-centering) */
+/* Left-align interior hero content while keeping it in the same wrap as body text */
 .hero > h1,
 .hero > .subhead,
 .hero > p,
 .hero > .eyebrow,
 .hero > .cta-group{
-  margin-left:0;
-  margin-right:auto;
   text-align:left;
 }
+.hero h1{max-width:var(--wrap);margin-left:auto;margin-right:auto;}
+.hero .subhead{max-width:var(--wrap);margin-left:auto;margin-right:auto;}
 /* home page uses .hero-inner wrapper, so neutralize the auto-padding there */
 .hero .hero-inner > *{padding-left:0;padding-right:0;margin-left:0;margin-right:0}
 .hero .hero-inner h1{max-width:18ch}

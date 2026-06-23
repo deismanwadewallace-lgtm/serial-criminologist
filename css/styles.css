@@ -113,7 +113,7 @@ em{font-style:italic}
 
 /* Interior-page hero (markup: <section class="hero"> with h1/subhead/p directly inside) */
 .hero{padding:0.7rem 0 0.6rem}
-.hero > h1,.hero > .subhead,.hero > p,.hero > .eyebrow,.hero > .cta-group{
+main .hero > h1,main .hero > .subhead,main .hero > p,main .hero > .eyebrow,main .hero > .cta-group{
   width:min(100%, var(--wrap));
   max-width:var(--wrap);margin-left:auto;margin-right:auto;
   padding-left:1.5rem;padding-right:1.5rem;

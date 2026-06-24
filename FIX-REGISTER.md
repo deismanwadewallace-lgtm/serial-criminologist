@@ -209,7 +209,9 @@ Post-domain operational cleanup performed by OpenClaw agent.
 6. **Synced reference components** (`components/header.html`, `components/footer.html`) to match the current live nav/footer so they are accurate if dynamic injection is ever enabled.
 7. **Updated `FIX-REGISTER.md`** to reflect deployed Cycles 4–7 and document the maintenance sweep.
 
+### Additional fix — 23 June 2026
+8. **Removed `Events` from main nav and footer nav** across all pages and component reference files. `events.html` remains live at its URL but is hidden from the launch menu until it has real content (consistent with Cycle 4 launch discipline).
+
 ### Still requires operator decision
-- Add `www.serialcriminologist.ca` DNS record at Namecheap (CNAME or redirect to apex).
-- Decide whether `events.html` stays in the main nav; if yes, it needs real content.
+- `www.serialcriminologist.ca` DNS propagation is in progress at Namecheap.
 - Decide on Understanding Crime subsections / dropdown restoration.

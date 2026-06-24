@@ -1,8 +1,8 @@
 # Serial Criminologist — Fix Register
 
-Site: https://deismanwadewallace-lgtm.github.io/serial-criminologist/
+Site: https://serialcriminologist.ca
 Opened: 19 June 2026
-Last updated: 19 June 2026 (Cycle 1 closed)
+Last updated: 23 June 2026 (Cycles 4–7 + maintenance sweep)
 
 Verification note: Claude's fetcher served a cached snapshot through Cycle 1 and kept showing the pre-fix state even with cache-busting query strings. Ground truth was confirmed by the author in an incognito browser window. RULE FOR THIS LOOP: when Claude's fetch disagrees with an incognito load, incognito wins. Use incognito (or a hard-refresh on the author's side) as the verification source until the fetcher cache clears.
 
@@ -172,9 +172,44 @@ DECLINED from the external review (with reasons): plain-language summary boxes o
 
 Component header.html synced to launch nav (reference file; live nav is inlined per page).
 
-### Still deferred
-- [ ] News Tracker: decide an update cadence/process (it will date; consider periodic refresh or engine-to-site automation).
-- [ ] Fill the deferred pages (Events, Courses, Resources, Writing, Opportunities) then return them to the nav.
-- [ ] Understanding Crime "Coming soon" subsections.
-- [ ] Subversion citations; diagnostic question; redirect-stub cleanup.
-- [ ] serialcriminologist.ca migration (final step).
+---
+
+## Cycle 4 — CLOSED / deployed (verified live 19 June 2026 via incognito)
+
+News Tracker and launch-discipline changes deployed to GitHub Pages. Live nav matched launch spec.
+
+---
+
+## Cycles 5–7 — rapid polish and custom domain (20–23 June 2026)
+
+A series of small production pushes refined the site before the domain cutover:
+
+- **Cycle 5**: full-site polish pass; unified header/footer component; interior hero layout cleanup; consistent left-aligned headings; full wrap-width heroes.
+- **Cycle 6**: visual redesign (Spectral/Inter/Plex Mono typography; ink/bone/signal palette); dark hero/footer; homepage dark-figure section with SVG graphic; claim-status evidence-grading system; live-tracking pulse.
+- **Cycle 7**: custom domain `serialcriminologist.ca` connected via CNAME on `main`; GitHub Pages serving from Fastly edge; wordmark sizing and cache-bust refinement.
+
+Deferred items still outstanding:
+- [ ] Events page content + anchors, then decide if it stays in main nav.
+- [ ] Fill the two "Coming soon" sections on Understanding Crime.
+- [ ] Subversion inline citations; diagnostic question.
+- [ ] News Tracker update cadence/process.
+- [ ] Fill deferred pages (Courses, Resources, Writing cluster, Opportunities) before returning them to nav.
+
+---
+
+## Maintenance sweep — 23 June 2026
+
+Post-domain operational cleanup performed by OpenClaw agent.
+
+1. **Converted `media-engagement.html` to redirect** → `media-appearances.html`. Eliminates duplicate-content split.
+2. **Removed unused banner images** (`assets/images/header-banner.jpg`, `assets/images/hero-banner.jpg`). ~300KB dead weight.
+3. **Added `robots.txt`** allowing all crawlers and pointing to sitemap.
+4. **Added `sitemap.xml`** covering all canonical content pages.
+5. **Added `<link rel="canonical">` tags** to all canonical content pages; updated redirect stubs to use full `https://serialcriminologist.ca/...` canonicals.
+6. **Synced reference components** (`components/header.html`, `components/footer.html`) to match the current live nav/footer so they are accurate if dynamic injection is ever enabled.
+7. **Updated `FIX-REGISTER.md`** to reflect deployed Cycles 4–7 and document the maintenance sweep.
+
+### Still requires operator decision
+- Add `www.serialcriminologist.ca` DNS record at Namecheap (CNAME or redirect to apex).
+- Decide whether `events.html` stays in the main nav; if yes, it needs real content.
+- Decide on Understanding Crime subsections / dropdown restoration.

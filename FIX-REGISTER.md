@@ -211,7 +211,8 @@ Post-domain operational cleanup performed by OpenClaw agent.
 
 ### Additional fix — 23 June 2026
 8. **Removed `Events` from main nav and footer nav** across all pages and component reference files. `events.html` remains live at its URL but is hidden from the launch menu until it has real content (consistent with Cycle 4 launch discipline).
+9. **Confirmed Understanding Crime has no dropdown in component reference.** Dropdown links to `#popular-and-scientific-approaches` and `#proof-of-concept` are not present in `components/header.html`; they will be restored only after those sections are written.
 
 ### Still requires operator decision
 - `www.serialcriminologist.ca` DNS propagation is in progress at Namecheap.
-- Decide on Understanding Crime subsections / dropdown restoration.
+- Fill the two "Coming soon" Understanding Crime sections when ready; only then restore the dropdown in components and live pages.

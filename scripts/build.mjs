@@ -30,9 +30,7 @@ function decodeHtml(value) {
     .replaceAll('&amp;', '&')
     .replaceAll('&quot;', '"')
     .replaceAll('&#39;', "'")
-    .replaceAll('&middot;', '·')
-    .replaceAll('&mdash;', '—')
-    .replaceAll('&ndash;', '–');
+    .replaceAll('&middot;', '·');
 }
 
 function schemaFor(file, title, description, canonical) {
@@ -91,7 +89,7 @@ ${robots}  <meta name="author" content="Dr. Wade Deisman">
   <meta property="og:image" content="${baseUrl}/assets/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Serial Criminologist — evidence over anecdote">
+  <meta property="og:image:alt" content="Serial Criminologist, evidence over anecdote">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title.replaceAll('"', '&quot;')}">
   <meta name="twitter:description" content="${description.replaceAll('"', '&quot;')}">

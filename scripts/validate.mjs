@@ -5,12 +5,16 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith('.html'));
 const failures = [];
+const dashOffenders = [];
 
 for (const file of htmlFiles) {
   const source = fs.readFileSync(path.join(root, file), 'utf8');
   const ids = [...source.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]);
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length) failures.push(`${file}: duplicate IDs: ${[...new Set(duplicateIds)].join(', ')}`);
+
+  const dashCount = (source.match(/[—–]/g) || []).length;
+  if (dashCount) dashOffenders.push(`${file}: ${dashCount} em/en dash${dashCount === 1 ? '' : 'es'}`);
 
   if (source.includes('<main id="main-content">')) {
     for (const required of [
@@ -53,9 +57,13 @@ for (const file of htmlFiles) {
   }
 }
 
+if (dashOffenders.length) {
+  failures.push(`Dash gate: em/en dashes found in ${dashOffenders.length} file(s):\n  ${dashOffenders.join('\n  ')}`);
+}
+
 if (failures.length) {
   console.error(failures.join('\n'));
   process.exitCode = 1;
 } else {
-  console.log(`Validated ${htmlFiles.length} HTML files: metadata, JSON-LD, IDs, links, and fragments pass.`);
+  console.log(`Validated ${htmlFiles.length} HTML files: metadata, JSON-LD, IDs, links, fragments, and dash gate pass.`);
 }

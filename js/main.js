@@ -1,119 +1,62 @@
 /**
- * Serial Criminologist — Global JavaScript
- * Minimal, framework-free. Handles nav toggle and component injection.
- * Designed for 40-year persistence and easy migration.
+ * Serial Criminologist — global interaction layer.
+ * Framework-free navigation, current-page state, and anchor scrolling.
  */
 
 (function() {
   'use strict';
 
-  // === DROPDOWN NAVIGATION ===
-  const dropdownParents = document.querySelectorAll('.has-dropdown');
-  dropdownParents.forEach(function(parent) {
-    const toggle = parent.querySelector('a[aria-haspopup="true"]');
-    const dropdown = parent.querySelector('.dropdown');
-    if (!toggle || !dropdown) return;
-
-    // Toggle on click (especially for touch / keyboard)
-    toggle.addEventListener('click', function(e) {
-      if (window.innerWidth > 768) {
-        // On desktop, allow normal navigation to media hub, but toggle if already on media
-        return;
-      }
-      e.preventDefault();
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !expanded);
-      parent.classList.toggle('active');
-    });
-
-    // Close dropdown when clicking a dropdown link on mobile
-    dropdown.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
-          toggle.setAttribute('aria-expanded', 'false');
-          parent.classList.remove('active');
-        }
-      });
-    });
-  });
-
-  // === MOBILE NAVIGATION ===
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.main-nav');
 
+  function closeNavigation() {
+    if (!navToggle || !mainNav) return;
+    navToggle.setAttribute('aria-expanded', 'false');
+    mainNav.classList.remove('open');
+  }
+
   if (navToggle && mainNav) {
     navToggle.addEventListener('click', function() {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('active');
+      const willOpen = !mainNav.classList.contains('open');
+      mainNav.classList.toggle('open', willOpen);
+      navToggle.setAttribute('aria-expanded', String(willOpen));
     });
 
-    // Close nav on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && mainNav.classList.contains('active')) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('active');
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && mainNav.classList.contains('open')) {
+        closeNavigation();
         navToggle.focus();
       }
     });
 
-    // Close nav when clicking a link (mobile)
     mainNav.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
-          navToggle.setAttribute('aria-expanded', 'false');
-          mainNav.classList.remove('active');
-        }
+        if (window.innerWidth <= 980) closeNavigation();
       });
+    });
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 980) closeNavigation();
     });
   }
 
-  // === COMPONENT INJECTION (optional, for future templating) ===
-  // Currently not used — components are hand-copied for byte-identical consistency.
-  // To enable dynamic injection, uncomment below and create header.html / footer.html
-  /*
-  function injectComponent(selector, path) {
-    const elements = document.querySelectorAll('[data-include="' + selector + '"]');
-    if (!elements.length) return;
-
-    fetch(path)
-      .then(function(response) {
-        if (!response.ok) throw new Error('Failed to load ' + path);
-        return response.text();
-      })
-      .then(function(html) {
-        elements.forEach(function(el) {
-          el.innerHTML = html;
-        });
-      })
-      .catch(function(err) {
-        console.error('Component injection failed:', err);
-      });
-  }
-
-  // Usage: injectComponent('header', '/components/header.html');
-  // Usage: injectComponent('footer', '/components/footer.html');
-  */
-
-  // === ACTIVE NAV HIGHLIGHTING ===
-  const currentPath = window.location.pathname;
+  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.main-nav a, .footer-nav a').forEach(function(link) {
-    const href = link.getAttribute('href');
-    if (href && currentPath.endsWith(href)) {
+    const linkUrl = new URL(link.href, window.location.href);
+    const linkFile = linkUrl.pathname.split('/').pop() || 'index.html';
+    if (linkFile === currentFile && !linkUrl.hash) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 
-  // === SMOOTH SCROLL FOR ANCHOR LINKS ===
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function(event) {
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
-        e.preventDefault();
+        event.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
-
-  console.log('Serial Criminologist — loaded');
 })();

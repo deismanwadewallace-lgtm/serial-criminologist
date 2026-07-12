@@ -125,7 +125,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* Interior-page hero (other pages keep a text-only hero) */
 main .hero.text-hero{padding:2.4rem 0 2rem}
 main .hero.text-hero > h1,main .hero.text-hero > .subhead,main .hero.text-hero > p,main .hero.text-hero > .eyebrow,main .hero.text-hero > .cta-group{
-  width:min(100%, var(--wrap));max-width:var(--wrap);margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem;text-align:left;
+  width:min(100%, var(--wrap));max-width:var(--wrap);margin-left:max(calc((100% - var(--wrap)) / 2), 0px);margin-right:auto;padding-left:1.5rem;padding-right:1.5rem;text-align:left;
 }
 main .hero.text-hero h1{color:var(--bone);margin-top:.6rem;margin-bottom:1.1rem;max-width:calc(18ch + 3rem);font-size:clamp(2.2rem,5.5vw,3.6rem);line-height:1.04}
 main .hero.text-hero h1 em{font-style:italic;font-weight:500;color:var(--olive-light)}
